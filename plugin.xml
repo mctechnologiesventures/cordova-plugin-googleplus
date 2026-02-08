@@ -65,23 +65,6 @@
     <header-file src="src/ios/GooglePlus.h"/>
     <source-file src="src/ios/GooglePlus.m"/>
 
-    <preference name="REVERSED_CLIENT_ID" />
-
-    <config-file target="*-Info.plist" parent="CFBundleURLTypes">
-      <array>
-        <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLName</key>
-            <string>REVERSED_CLIENT_ID</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>$REVERSED_CLIENT_ID</string>
-            </array>
-        </dict>
-      </array>
-    </config-file>
-
     <config-file parent="keychain-access-groups" target="*/Entitlements-Debug.plist">
       <array>
         <string>$(AppIdentifierPrefix)$(PRODUCT_BUNDLE_IDENTIFIER)</string>
@@ -108,12 +91,11 @@
         <source url="https://cdn.cocoapods.org/"/>
       </config>
       <pods use-frameworks="true">
-        <pod name="GoogleSignIn" spec="~> 5.0.2"/>
-        <pod name="GoogleUtilities" spec="~> 7.13.3"/>
+        <pod name="GoogleSignIn" spec="~> 7.1"/>
       </pods>
     </podspec>
 
-		<hook type="after_plugin_install" src="hooks/ios/prerequisites.js"/>
+    <hook type="after_prepare" src="hooks/ios/after_prepare.js"/>
   </platform>
 
   <!-- browser -->
